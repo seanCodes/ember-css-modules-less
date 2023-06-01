@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"experimentalDecorators": true,
+		"baseUrl": ".",
+		"paths": {
+			"ember-css-modules-less/*": ["./addon/*"],
+			"ember-css-modules-less/tests/*": ["./tests/*"]
+		}
+	},
+	"exclude": [
+		".*",
+		"coverage",
+		"dist",
+		"node_modules",
+		"temp",
+		"tmp",
+		"vendor"
+	],
+	"typeAcquisition": {
+		"enable": true,
+		"include": ["ember", "qunit", "ember-qunit"]
+	}
+ }
