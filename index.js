@@ -12,7 +12,6 @@ class EmberCSSModulesLessPlugin extends EmberCSSModulesPlugin {
 	}
 
 	config() {
-		console.log('PostCSSLess', PostCSSLess)
 		return {
 			intermediateOutputPath: this._intermediateOutputPath(),
 			extension: 'less',
