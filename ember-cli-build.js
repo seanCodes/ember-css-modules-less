@@ -4,7 +4,15 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon')
 
 module.exports = function (defaults) {
 	const app = new EmberAddon(defaults, {
-		// Add options here
+		cssModules: {
+			extension: 'module.less',
+			intermediateOutputPath: 'app/styles/_modules.less',
+		},
+		lessOptions: {
+			paths: ['node_modules/bootstrap-less-port/less/'],
+			math: 'parens-division',
+			sourceMap: { outputSourceFiles: true },
+		},
 	})
 
 	/*

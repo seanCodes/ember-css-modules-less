@@ -1,25 +1,60 @@
 # ember-css-modules-less
 
-[Short description of the addon.]
+This is an [ember-css-modules](https://github.com/salsify/ember-css-modules) plugin that allows it to understand [Less](https://lesscss.org/) syntax and work in conjunction with [ember-cli-less](https://github.com/gpoitch/ember-cli-less) to process Less CSS modules.
 
 
 ## Compatibility
 
-* Ember.js v4.4 or above
-* Ember CLI v4.4 or above
-* Node.js v14 or above
+- Ember.js v3.24 or above
+- Ember CLI v3.24 or above
+- Node.js v14 or above
 
 
 ## Installation
 
-```
-ember install ember-css-modules-less
+```sh
+ember install ember-cli-less ember-css-modules ember-css-modules-less
 ```
 
 
 ## Usage
 
-[Longer description of how to use the addon in apps.]
+Usage is the same as [ember-css-modules](https://github.com/salsify/ember-css-modules#usage) except that `.less` files will be processed as CSS modules. For example:
+
+```less
+// app/components/hello.less
+
+.look-at-me {
+  color: crimson;
+}
+```
+
+```hbs
+{{! app/components/hello.hbs }}
+
+<p local-class="look-at-me">
+  I’m scoped look at me!
+</p>
+```
+
+will output something like
+
+```html
+<p class="_look-at-me_1p3fr2_">
+  I’m scoped look at me!
+</p>
+```
+
+
+
+## Configuration
+
+This plugin will configure ember-css-modules so that classes in all `.less` files in your project will be namespaced. If you need finer-grained control over the treatment of specific aspects of the interplay between CSS Modules and Less, see the [ember-css-modules preprocessors guide](https://github.com/salsify/ember-css-modules/blob/master/docs/PREPROCESSORS.md).
+
+
+## Usage with Embroider
+
+For applications, the relative output path for CSS is different with Embroider than with a regular Ember CLI build. If `ember-css-modules-less` detects that you’re running in an application with `@embroider/compat` installed, it will attempt to adjust its `intermediateOutputPath` setting accordingly.
 
 
 ## Contributing
@@ -30,3 +65,8 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
+
+
+## Credits
+
+This addon is basically a clone of [ember-css-modules-sass](https://github.com/dfreeman/ember-css-modules-sass) by @dfreeman, but for modified for Less.
