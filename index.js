@@ -1,6 +1,6 @@
 'use strict'
 
-// eslint-disable-next-line n/no-extraneous-require
+// eslint-disable-next-line n/no-extraneous-require, n/no-unpublished-require
 const EmberCSSModulesPlugin = require('ember-css-modules/lib/plugin')
 // eslint-disable-next-line n/no-extraneous-require
 const PostCSSLess = require('postcss-less')
