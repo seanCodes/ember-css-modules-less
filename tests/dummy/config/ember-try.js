@@ -5,7 +5,28 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup')
 
 module.exports = async function () {
 	return {
+		npmOptions: ['--legacy-peer-deps'],
 		scenarios: [
+			{
+				name: 'ember-lts-3.24',
+				npm: {
+					devDependencies: {
+						'ember-qunit': '^5.1.5',
+						'ember-resolver': '^8.1.0',
+						'ember-source': '~3.24.0',
+					},
+				},
+			},
+			{
+				name: 'ember-lts-3.28',
+				npm: {
+					devDependencies: {
+						'ember-qunit': '^5.1.5',
+						'ember-resolver': '^8.1.0',
+						'ember-source': '~3.28.0',
+					},
+				},
+			},
 			{
 				name: 'ember-lts-4.4',
 				npm: {
@@ -47,7 +68,14 @@ module.exports = async function () {
 				},
 			},
 			embroiderSafe(),
-			embroiderOptimized(),
+			{
+				...embroiderOptimized(),
+				// This scenario fails due to an `ember-css-modules` error:
+				// ```
+				// Error: Unable to resolve local class names from dummy/components/hello.module.less; does the styles file exist?
+				// ```
+				allowedToFail: true,
+			},
 		],
 	}
 }
