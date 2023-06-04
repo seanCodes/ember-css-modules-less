@@ -6,7 +6,7 @@
 		"ember-addon",
 		"ember-css-modules-plugin"
 	],
-	"repository": "",
+	"repository": "https://github.com/seanCodes/ember-css-modules-less",
 	"license": "MIT",
 	"author": "Sean Juarez",
 	"directories": {
