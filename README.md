@@ -51,6 +51,35 @@ will output something like
 
 This plugin will configure ember-css-modules so that classes in all `.less` files in your project will be namespaced. If you need finer-grained control over the treatment of specific aspects of the interplay between CSS Modules and Less, see the [ember-css-modules preprocessors guide](https://github.com/salsify/ember-css-modules/blob/master/docs/PREPROCESSORS.md).
 
+### Migrating to Modules
+
+By default all files with a `.less` extension will be processed as CSS modules and will be combined and output as `app.less`. This can be an issue if you have existing styles that you want to gradually migrate to modules, or if you want the two to coexist.
+
+In these cases you can differentiate between module/non-module Less files by providing a custom `cssModules.extension` value in your `ember-cli-build.js`. Modules can be output in a different location by customizing the `cssModules.intermediateOutputPath` and then the resulting file can be imported into your existing `app.less` file, for example:
+
+```js
+// ember-cli-build.js
+
+module.exports = function (defaults) {
+	const app = new EmberAddon(defaults, {
+      cssModules: {
+			extension: 'module.less',
+			intermediateOutputPath: 'app/styles/css-modules.less',
+		},
+	})
+	// ...
+}
+```
+
+```less
+// app/styles/app.less
+
+@import 'some-existing-import.less';
+
+@import 'css-modules.less';
+```
+
+With this config only `*.module.less` files would be processed as a CSS Modules and all existing files would be handled as normal.
 
 ## Usage with Embroider
 
@@ -69,4 +98,4 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Credits
 
-This addon is basically a clone of [ember-css-modules-sass](https://github.com/dfreeman/ember-css-modules-sass) by @dfreeman, but for modified for Less.
+This addon is basically a clone of [ember-css-modules-sass](https://github.com/dfreeman/ember-css-modules-sass) by @dfreeman, but for modified for Less. Thanks to him for figuring this out first!
