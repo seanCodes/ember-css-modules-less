@@ -1,4 +1,4 @@
-# ember-css-modules-less [![Actions Status](https://github.com/seanCodes/ember-css-modules-less/actions/workflows/ci.yml/badge.svg)](https://github.com/seanCodes/ember-css-modules-less/actions/workflows/ci.yml)
+# ember-css-modules-less [![Actions Status](https://github.com/seanCodes/ember-css-modules-less/actions/workflows/ci.yml/badge.svg)](https://github.com/seanCodes/ember-css-modules-less/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/ember-css-modules-less.svg)](https://www.npmjs.com/package/ember-css-modules-less)
 
 This is an [ember-css-modules](https://github.com/salsify/ember-css-modules) plugin that allows it to understand [Less](https://lesscss.org/) syntax and work in conjunction with [ember-cli-less](https://github.com/gpoitch/ember-cli-less) to process Less CSS modules.
 
