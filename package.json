@@ -1,6 +1,6 @@
 {
 	"name": "ember-css-modules-less",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "An ember-css-modules plugin that configures the build pipeline for use with Less",
 	"keywords": [
 		"ember-addon",
