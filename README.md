@@ -25,7 +25,7 @@ Usage is the same as [ember-css-modules](https://github.com/salsify/ember-css-mo
 // app/components/hello.less
 
 .look-at-me {
-  color: crimson;
+   color: crimson;
 }
 ```
 
@@ -33,7 +33,7 @@ Usage is the same as [ember-css-modules](https://github.com/salsify/ember-css-mo
 {{! app/components/hello.hbs }}
 
 <p local-class="look-at-me">
-  I’m scoped look at me!
+   I’m scoped look at me!
 </p>
 ```
 
@@ -41,7 +41,7 @@ will output something like
 
 ```html
 <p class="_look-at-me_1p3fr2_">
-  I’m scoped look at me!
+   I’m scoped look at me!
 </p>
 ```
 
@@ -61,13 +61,13 @@ In these cases you can differentiate between module/non-module Less files by pro
 // ember-cli-build.js
 
 module.exports = function (defaults) {
-	const app = new EmberAddon(defaults, {
+   const app = new EmberAddon(defaults, {
       cssModules: {
-			extension: 'module.less',
-			intermediateOutputPath: 'app/styles/css-modules.less',
-		},
-	})
-	// ...
+         extension: 'module.less',
+         intermediateOutputPath: 'app/styles/css-modules.less',
+      },
+   })
+   // ...
 }
 ```
 
